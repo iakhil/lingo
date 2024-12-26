@@ -4,7 +4,75 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Local Lingo</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+
+        header {
+            background-color: #1f1f1f;
+            color: #ffffff;
+            padding: 1em;
+            text-align: center;
+        }
+
+        main {
+            padding: 2em;
+        }
+
+        section {
+            margin-bottom: 2em;
+        }
+
+        h2 {
+            color: #4CAF50;
+        }
+
+        select, textarea, button {
+            display: block;
+            margin: 1em 0;
+            padding: 0.5em;
+            width: 100%;
+            max-width: 500px;
+            background-color: #1f1f1f;
+            color: #e0e0e0;
+            border: 1px solid #4CAF50;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #terms-list {
+            padding: 1em;
+            background-color: #1f1f1f;
+            border: 1px solid #4CAF50;
+            border-radius: 5px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 0.5em;
+            background-color: #1f1f1f;
+            color: #e0e0e0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            font-size: 0.9em;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -48,9 +116,31 @@
     </main>
 
     <footer>
-        <p>&copy; 2024 Local Lingo. All rights reserved.</p>
+        <p>&copy; 2024 Local Lingo</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        document.getElementById('load-terms').addEventListener('click', () => {
+            const language = document.getElementById('language-dropdown').value;
+            const termsList = document.getElementById('terms-list');
+            
+            // Example terms (replace with API calls)
+            const exampleTerms = {
+                en: ['Hello', 'Thank you', 'Goodbye'],
+                es: ['Hola', 'Gracias', 'Adiós'],
+                fr: ['Bonjour', 'Merci', 'Au revoir']
+            };
+
+            termsList.innerHTML = exampleTerms[language]?.map(term => `<p>${term}</p>`).join('') || '<p>No terms available for this language.</p>';
+        });
+
+        document.getElementById('translate-button').addEventListener('click', () => {
+            const customText = document.getElementById('custom-input').value;
+            const translationResult = document.getElementById('translation-result');
+
+            // Example translation (replace with API calls)
+            translationResult.textContent = `Translated Text: ${customText} (Example)`;
+        });
+    </script>
 </body>
 </html>
