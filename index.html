@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Lingo</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Local Lingo</h1>
+        <p>Your go-to app for learning and translating everyday phrases!</p>
+    </header>
+
+    <main>
+        <!-- Language Selection -->
+        <section id="language-selection">
+            <h2>Select a Language</h2>
+            <select id="language-dropdown">
+                <option value="en">English</option>
+                <option value="es">Spanish</option>
+                <option value="fr">French</option>
+                <option value="de">German</option>
+                <option value="zh">Chinese</option>
+                <option value="hi">Hindi</option>
+                <!-- Add more languages as needed -->
+            </select>
+            <button id="load-terms">Load Terms</button>
+        </section>
+
+        <!-- Useful Terms Section -->
+        <section id="useful-terms">
+            <h2>Everyday Useful Terms</h2>
+            <div id="terms-list">
+                <!-- Populated dynamically -->
+            </div>
+        </section>
+
+        <!-- Custom Translation Section -->
+        <section id="custom-translation">
+            <h2>Translate Custom Text</h2>
+            <textarea id="custom-input" placeholder="Enter text to translate..."></textarea>
+            <button id="translate-button">Translate</button>
+            <div id="translation-result">
+                <!-- Translation result will be displayed here -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Local Lingo. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
