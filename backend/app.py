@@ -49,5 +49,29 @@ def generate_audio():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
+@app.route('/api/translate', methods=['POST'])
+def translate():
+    data = request.json
+    text = data.get('text', '')
+    target_language = data.get('language', 'en')
+
+    if not text:
+        return jsonify({"error": "Text is required for translation."}), 400
+
+    try:
+        # Call OpenAI API for translation
+        response = client.chat.completions.create(
+            model="gpt-4",
+            messages=[
+                {"role": "system", "content": "You are a helpful translation assistant."},
+                {"role": "user", "content": f"Translate the following text to {target_language}: {text}"}
+            ]
+        )
+        translated_text = response['choices'][0]['message']['content']
+        return jsonify({"translated_text": translated_text})
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
 if __name__ == '__main__':
     app.run(debug=True)
